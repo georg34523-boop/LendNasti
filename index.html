@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Me — Покроковий план трансформації</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#d4af37',
+                        darkgreen: '#0a1f12',
+                        darker: '#050f08',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Intl-Tel-Input CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom Styles for inputs and scrollbar */
+        .iti { width: 100%; }
+        .iti__flag { background-image: url("https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/img/flags.png"); }
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          .iti__flag { background-image: url("https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/img/flags@2x.png"); }
+        }
+        body {
+            background-color: #050f08;
+            color: #f3f4f6;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+
+    <!-- Pixel Code Placeholder -->
+    <script>
+        // Замени YOUR_PIXEL_ID на реальный ID
+        const PIXEL_ID = 'YOUR_PIXEL_ID'; 
+
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        if(PIXEL_ID !== 'YOUR_PIXEL_ID') {
+            fbq('init', PIXEL_ID);
+            fbq('track', 'PageView');
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- HERO SECTION -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="fon.jpg" alt="Background" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-b from-darker/80 via-darkgreen/50 to-darker"></div>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-4 text-center py-20">
+            <p class="text-gold uppercase tracking-[0.2em] text-sm mb-4 animate-pulse">Безкоштовний урок</p>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                FUTURE <span class="text-gold italic">ME</span>
+            </h1>
+            <h2 class="font-serif text-2xl md:text-4xl mb-6 text-white max-w-4xl mx-auto">
+                Покроковий план трансформації, який кардинально змінить твою особистість на краще
+            </h2>
+            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
+                Система, що змінює мислення, звички, впевненість і те, як ти проявляєшся у світі.
+            </p>
+
+            <button onclick="openModal()" class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-darker transition-all duration-200 bg-gold font-sans rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold hover:bg-white hover:scale-105">
+                <span>ОТРИМАТИ ДОСТУП</span>
+                <i data-lucide="play-circle" class="ml-2 w-5 h-5 group-hover:text-darker"></i>
+            </button>
+            
+            <p class="mt-4 text-xs text-gray-500 flex items-center justify-center gap-1">
+                <i data-lucide="lock" class="w-3 h-3"></i> Відео відкриється одразу після введення даних
+            </p>
+        </div>
+    </header>
+
+    <!-- WHAT YOU GET SECTION -->
+    <section class="py-20 bg-darker">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif text-3xl md:text-5xl text-center mb-12 text-gold">Що ви отримаєте у відео?</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Items -->
+                <div class="glass-panel p-6 rounded-xl flex gap-4 items-start hover:border-gold/30 transition">
+                    <i data-lucide="check-circle-2" class="text-gold w-8 h-8 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Мислення та стан</h3>
+                        <p class="text-gray-400 text-sm">Як змінюється мислення, стан та дії, і чому без цього жодна трансформація не працює.</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6 rounded-xl flex gap-4 items-start hover:border-gold/30 transition">
+                    <i data-lucide="sparkles" class="text-gold w-8 h-8 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Шлях Glow Up</h3>
+                        <p class="text-gray-400 text-sm">Від хаосу в голові до чіткого розуміння себе, своїх бажань і напрямку.</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6 rounded-xl flex gap-4 items-start hover:border-gold/30 transition">
+                    <i data-lucide="zap" class="text-gold w-8 h-8 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Енергія та самореалізація</h3>
+                        <p class="text-gray-400 text-sm">Чому ти застрягла у стані втоми і що насправді блокує твою самореалізацію.</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6 rounded-xl flex gap-4 items-start hover:border-gold/30 transition">
+                    <i data-lucide="heart" class="text-gold w-8 h-8 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Внутрішня опора</h3>
+                        <p class="text-gray-400 text-sm">3 внутрішні конфлікти, які не дають тобі стати тією, ким мрієш бути.</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6 rounded-xl flex gap-4 items-start hover:border-gold/30 transition">
+                    <i data-lucide="shield-check" class="text-gold w-8 h-8 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Впевненість</h3>
+                        <p class="text-gray-400 text-sm">Проста техніка, яка допоможе відчути справжню впевненість тут і зараз.</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6 rounded-xl flex gap-4 items-start hover:border-gold/30 transition">
+                    <i data-lucide="arrow-right-circle" class="text-gold w-8 h-8 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Життя без "потім"</h3>
+                        <p class="text-gray-400 text-sm">Чому ти боїшся проявлятися і як почати жити та діяти вже зараз.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button onclick="openModal()" class="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-gold border border-gold rounded-full hover:bg-gold hover:text-darker transition duration-300">
+                    ОТРИМАТИ ДОСТУП ДО ВІДЕО
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSFORMATION SECTION -->
+    <section class="py-20 bg-darkgreen/30">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="font-serif text-3xl md:text-4xl mb-12">Що змінюється, коли ти трансформуєш особистість?</h2>
+            <ul class="text-left space-y-6 md:px-20">
+                <li class="flex items-start gap-4">
+                    <div class="bg-gold/20 p-2 rounded-full text-gold"><i data-lucide="check" class="w-5 h-5"></i></div>
+                    <span class="text-gray-200">Чітко розумієш, чого хочеш, і йдеш до своїх цілей без сумнівів.</span>
+                </li>
+                <li class="flex items-start gap-4">
+                    <div class="bg-gold/20 p-2 rounded-full text-gold"><i data-lucide="check" class="w-5 h-5"></i></div>
+                    <span class="text-gray-200">Перестаєш відкладати своє життя "на потім" і починаєш діяти.</span>
+                </li>
+                <li class="flex items-start gap-4">
+                    <div class="bg-gold/20 p-2 rounded-full text-gold"><i data-lucide="check" class="w-5 h-5"></i></div>
+                    <span class="text-gray-200">Стабільний стан без емоційних гойдалок.</span>
+                </li>
+                <li class="flex items-start gap-4">
+                    <div class="bg-gold/20 p-2 rounded-full text-gold"><i data-lucide="check" class="w-5 h-5"></i></div>
+                    <span class="text-gray-200">Впевненість, яка не потребує схвалення інших.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- AUTHOR SECTION (Who am I + Before/After) -->
+    <section class="py-20 bg-darker overflow-hidden">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif text-4xl md:text-6xl text-center mb-16 text-white"><span class="italic text-gold">My</span> Story</h2>
+            
+            <!-- Grid Layout -->
+            <div class="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto items-center">
+                
+                <!-- Before Side -->
+                <div class="space-y-6">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-red-900 to-gray-900 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                        <div class="relative grid grid-cols-2 gap-2">
+                            <img src="do1.jpg" alt="Анастасія До 1" class="rounded-lg object-cover h-64 w-full grayscale hover:grayscale-0 transition duration-500">
+                            <img src="do2.jpg" alt="Анастасія До 2" class="rounded-lg object-cover h-64 w-full grayscale hover:grayscale-0 transition duration-500">
+                        </div>
+                    </div>
+                    <h3 class="font-serif text-2xl text-gray-400">ДО: Втрата себе</h3>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        Привіт, мене звати Анастасія. До 25 років я не знала, ким хочу бути. Декрет, післяпологова депресія, порожнеча всередині. 
+                        Сварки з чоловіком, шлюб на межі розлучення. Я відчувала себе <span class="text-red-400">нереалізованою</span>.
+                    </p>
+                </div>
+
+                <!-- After Side -->
+                <div class="space-y-6">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-gold to-yellow-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                        <div class="relative grid grid-cols-2 gap-2">
+                            <img src="posle1.jpg" alt="Анастасія Після 1" class="rounded-lg object-cover h-64 w-full">
+                            <img src="posle2.jpg" alt="Анастасія Після 2" class="rounded-lg object-cover h-64 w-full">
+                        </div>
+                    </div>
+                    <h3 class="font-serif text-2xl text-gold">ЗАРАЗ: Реалізація</h3>
+                    <p class="text-gray-200 font-light leading-relaxed">
+                        Жінка, яка збудувала сильний особистий бренд. Через мої проекти пройшло <span class="text-gold font-bold">40,000+ жінок</span>. 
+                        Улюблена справа, гармонійні стосунки, наповненість енергією.
+                    </p>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-16">
+                 <button onclick="openModal()" class="text-gold underline hover:text-white transition uppercase tracking-widest text-sm">
+                    Дізнатись всі подробиці
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="py-20 bg-gradient-to-b from-darker to-darkgreen/20">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif text-3xl md:text-5xl text-center mb-12">Відгуки</h2>
+            <!-- Masonry-like grid for reviews -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+                <img src="otz1.jpg" alt="Відгук 1" class="w-full rounded-xl border border-white/10 hover:scale-[1.02] transition duration-300">
+                <img src="otz2.jpg" alt="Відгук 2" class="w-full rounded-xl border border-white/10 hover:scale-[1.02] transition duration-300">
+                <img src="otz3.jpg" alt="Відгук 3" class="w-full rounded-xl border border-white/10 hover:scale-[1.02] transition duration-300">
+                <img src="otz4.jpg" alt="Відгук 4" class="w-full rounded-xl border border-white/10 hover:scale-[1.02] transition duration-300">
+                <img src="otz5.jpg" alt="Відгук 5" class="w-full rounded-xl border border-white/10 hover:scale-[1.02] transition duration-300">
+                <img src="otz6.jpg" alt="Відгук 6" class="w-full rounded-xl border border-white/10 hover:scale-[1.02] transition duration-300">
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <section class="py-20 bg-darker relative">
+        <div class="absolute inset-0 bg-[url('fon.jpg')] bg-cover opacity-10"></div>
+        <div class="container relative mx-auto px-4 text-center max-w-2xl">
+            <h2 class="font-serif text-3xl md:text-5xl mb-6 text-white">Почни діяти вже сьогодні</h2>
+            <p class="text-gray-400 mb-8">Ти можеш перестати відкладати свою самореалізацію. Почни з безкоштовного відео.</p>
+            
+            <button onclick="openModal()" class="w-full md:w-auto px-10 py-5 bg-gold text-darker font-bold text-xl rounded-full hover:bg-white transition hover:scale-105 shadow-[0_0_20px_rgba(212,175,55,0.4)]">
+                ОТРИМАТИ ДОСТУП
+            </button>
+            <p class="mt-8 text-gray-600 text-xs uppercase tracking-widest">Future Me © 2024</p>
+        </div>
+    </section>
+
+    <!-- MODAL POPUP -->
+    <div id="modal" class="fixed inset-0 z-50 hidden transition-opacity duration-300" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+            <div class="relative transform overflow-hidden rounded-2xl bg-[#0F1C15] border border-gold/30 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md scale-100 opacity-100">
+                
+                <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+
+                <div class="px-8 py-10">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-serif text-white mb-2" id="modal-title">Відкрити доступ</h3>
+                        <p class="text-sm text-gray-400">Введіть свої дані, щоб ми надіслали вам урок</p>
+                    </div>
+
+                    <form id="leadForm" class="space-y-4">
+                        <!-- Name Input -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-400 mb-1">Ваше ім'я</label>
+                            <input type="text" id="name" name="name" required placeholder="Анастасія" 
+                                class="w-full bg-darker border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition">
+                        </div>
+
+                        <!-- Phone Input -->
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-400 mb-1">Номер телефону</label>
+                            <input type="tel" id="phone" name="phone" required
+                                class="w-full bg-darker border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition">
+                            <div id="phone-error" class="text-red-500 text-xs mt-1 hidden">Невірний формат номеру</div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" id="submitBtn" class="w-full bg-gold text-darker font-bold text-lg py-4 rounded-lg hover:bg-white transition mt-4">
+                            ОТРИМАТИ УРОК
+                        </button>
+                    </form>
+                    
+                    <p class="text-xs text-center text-gray-500 mt-4">Натискаючи кнопку, ви даєте згоду на обробку персональних даних.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+    <script>
+        // --- CONFIGURATION ---
+        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL'; // Встав сюди URL скрипта
+        const BOT_LINK = 'YOUR_BOT_LINK'; // Встав сюди лінк на бота
+        // ---------------------
+
+        lucide.createIcons();
+
+        // Modal Logic
+        const modal = document.getElementById('modal');
+        function openModal() {
+            modal.classList.remove('hidden');
+            if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
+        }
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+
+        // Phone Input Logic
+        const input = document.querySelector("#phone");
+        const errorMsg = document.querySelector("#phone-error");
+        
+        const iti = window.intlTelInput(input, {
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+            separateDialCode: true,
+            initialCountry: "auto",
+            geoIpLookup: function(callback) {
+                fetch("https://get.geojs.io/v1/ip/country.json")
+                    .then(res => res.json())
+                    .then(data => callback(data.country))
+                    .catch(() => callback("ua"));
+            }
+        });
+
+        // UTM Parser
+        function getUTMParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                source: params.get('utm_source') || '',
+                medium: params.get('utm_medium') || '',
+                campaign: params.get('utm_campaign') || '',
+                content: params.get('utm_content') || '',
+                term: params.get('utm_term') || ''
+            };
+        }
+
+        // Form Submission
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            errorMsg.classList.add('hidden');
+
+            if (!iti.isValidNumber()) {
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerText;
+            btn.innerText = "ЗАВАНТАЖЕННЯ...";
+            btn.disabled = true;
+            btn.classList.add('opacity-70');
+
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: iti.getNumber(),
+                date: new Date().toLocaleString("uk-UA"),
+                ...getUTMParams()
+            };
+
+            // Send to Google Sheets
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Важливо для Google Scripts
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            }).then(() => {
+                // Success
+                if(typeof fbq !== 'undefined') fbq('track', 'Lead');
+                window.location.href = BOT_LINK;
+            }).catch(err => {
+                console.error('Error:', err);
+                // Fallback redirect even if script fails
+                window.location.href = BOT_LINK;
+            });
+        });
+    </script>
+</body>
+</html>
