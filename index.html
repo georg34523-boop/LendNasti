@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Future Me — Покроковий план трансформації</title>
+    <title>Future Me — Трансформація</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,12 +17,13 @@
             theme: {
                 extend: {
                     colors: {
-                        gold: '#d4af37',
-                        darkgreen: '#0a1f12',
-                        darker: '#050f08',
+                        cream: '#FDFBF7',      /* Основной светлый фон */
+                        coffee: '#2C2520',     /* Темно-коричневый (текст, кнопки) */
+                        bronze: '#C59D71',     /* Бронзовый акцент */
+                        softbrown: '#EAE5DE',  /* Плашки и линии */
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Manrope', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
                     }
                 }
@@ -33,7 +34,7 @@
     <!-- Intl-Tel-Input CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
     
-    <!-- Swiper CSS (Для карусели отзывов) -->
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <!-- Lucide Icons -->
@@ -41,240 +42,255 @@
 
     <style>
         /* Custom Styles */
+        body {
+            background-color: #FDFBF7; /* cream */
+            color: #2C2520; /* coffee */
+            padding-bottom: 80px;
+        }
+        
         .iti { width: 100%; }
         .iti__flag { background-image: url("https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/img/flags.png"); }
         @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
           .iti__flag { background-image: url("https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/img/flags@2x.png"); }
         }
-        body {
-            background-color: #050f08;
-            color: #f3f4f6;
-            padding-bottom: 80px; /* Отступ чтобы кнопка не перекрывала футер */
+
+        /* Input styling overrides for Light Theme */
+        .iti__selected-flag {
+            background-color: #FDFBF7 !important;
         }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        /* Стили для слайдера */
-        .swiper-slide {
-            height: auto;
+        
+        /* Swiper Pagination Colors */
+        .swiper-pagination-bullet {
+            background-color: #C59D71 !important;
+            opacity: 0.5;
         }
         .swiper-pagination-bullet-active {
-            background-color: #d4af37 !important;
+            opacity: 1;
+        }
+
+        /* Image Shape & Shadow */
+        .hero-image {
+            border-radius: 20px;
+            box-shadow: 20px 20px 0px #EAE5DE; /* soft offset shadow */
         }
     </style>
 
     <!-- Pixel Code Placeholder -->
     <script>
-        // Замени YOUR_PIXEL_ID на реальный ID
         const PIXEL_ID = 'YOUR_PIXEL_ID'; 
-
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        
-        if(PIXEL_ID !== 'YOUR_PIXEL_ID') {
-            fbq('init', PIXEL_ID);
-            fbq('track', 'PageView');
-        }
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        if(PIXEL_ID !== 'YOUR_PIXEL_ID') { fbq('init', PIXEL_ID); fbq('track', 'PageView'); }
     </script>
 </head>
-<body class="antialiased">
+<body class="antialiased font-sans">
 
-    <!-- HERO SECTION -->
-    <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="fon.jpg" alt="Background" class="w-full h-full object-cover opacity-60">
-            <div class="absolute inset-0 bg-gradient-to-b from-darker/80 via-darkgreen/50 to-darker"></div>
-        </div>
+    <!-- HERO SECTION (NEW STRUCTURE) -->
+    <header class="relative pt-10 pb-20 overflow-hidden">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Text Content (Left on Desktop, Top/Bottom split on Mobile) -->
+                <div class="flex flex-col order-1">
+                    
+                    <!-- Badge -->
+                    <div class="inline-block mb-6">
+                        <span class="px-4 py-2 rounded-full border border-bronze text-bronze text-xs tracking-[0.15em] uppercase font-semibold bg-white">
+                            Безкоштовний урок
+                        </span>
+                    </div>
 
-        <div class="relative z-10 container mx-auto px-4 text-center py-20">
-            <p class="text-gold uppercase tracking-[0.2em] text-sm mb-4 animate-pulse">Безкоштовний урок</p>
-            <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                FUTURE <span class="text-gold italic">ME</span>
-            </h1>
-            <h2 class="font-serif text-2xl md:text-4xl mb-6 text-white max-w-4xl mx-auto">
-                Покроковий план трансформації, який кардинально змінить твою особистість на краще
-            </h2>
-            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
-                Система, що змінює мислення, звички, впевненість і те, як ти проявляєшся у світі.
-            </p>
+                    <!-- Headline (H1) -->
+                    <h1 class="font-serif text-4xl md:text-6xl lg:text-[4rem] leading-[1.1] text-coffee mb-6">
+                        Як перейти зі стану тривоги та сумнівів у стан жінки, 
+                        <span class="text-bronze italic">яку люблять, чують і обирають?</span>
+                    </h1>
 
-            <button onclick="openModal()" class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-darker transition-all duration-200 bg-gold font-sans rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold hover:bg-white hover:scale-105 shadow-[0_0_20px_rgba(212,175,55,0.4)]">
-                <span>ОТРИМАТИ ДОСТУП</span>
-                <i data-lucide="play-circle" class="ml-2 w-5 h-5 group-hover:text-darker"></i>
-            </button>
-            
-            <p class="mt-4 text-xs text-gray-500 flex items-center justify-center gap-1">
-                <i data-lucide="lock" class="w-3 h-3"></i> Відео відкриється одразу після введення даних
-            </p>
+                    <!-- MOBILE IMAGE PLACEMENT (Visible only on mobile) -->
+                    <div class="block lg:hidden mb-8 w-full max-w-sm mx-auto">
+                         <img src="fon.jpg" alt="Анастасія" class="w-full h-auto object-cover rounded-[2rem] shadow-xl">
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-8 max-w-lg">
+                        Всього за 1 відео отримайте доступ до системи, де я розкрию реальний шлях до внутрішньої опори, жіночої легкості та стосунків, де тебе цінують.
+                    </p>
+
+                    <!-- Button & Lock -->
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                        <button onclick="openModal()" class="w-full sm:w-auto px-10 py-5 bg-coffee text-white text-lg font-medium rounded-full hover:bg-bronze transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            Отримати доступ до відео
+                        </button>
+                    </div>
+                    
+                    <p class="mt-4 text-sm text-gray-400 flex items-center gap-2">
+                        <i data-lucide="lock" class="w-3 h-3 text-bronze"></i> 
+                        Відео відкриється одразу після введення даних
+                    </p>
+                </div>
+
+                <!-- DESKTOP IMAGE PLACEMENT (Hidden on mobile) -->
+                <div class="hidden lg:block order-2 relative">
+                    <div class="relative z-10">
+                        <img src="fon.jpg" alt="Анастасія" class="w-full max-w-md mx-auto h-auto object-cover hero-image">
+                    </div>
+                    <!-- Decorative Circle behind -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#F2F0EB] rounded-full blur-3xl -z-10 opacity-60"></div>
+                </div>
+
+            </div>
         </div>
     </header>
 
-    <!-- WHAT YOU GET SECTION -->
-    <section class="py-20 bg-darker">
-        <div class="container mx-auto px-4">
-            <h2 class="font-serif text-3xl md:text-5xl text-center mb-12 text-gold">Що ви отримаєте у відео?</h2>
+    <!-- WHAT YOU GET SECTION (Light Theme) -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="font-serif text-3xl md:text-5xl text-center mb-16 text-coffee">Що ви отримаєте у відео?</h2>
             
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Items -->
-                <div class="glass-panel p-6 rounded-xl flex gap-4 items-start hover:border-gold/30 transition">
-                    <i data-lucide="check-circle-2" class="text-gold w-8 h-8 flex-shrink-0 mt-1"></i>
+                <!-- Item -->
+                <div class="p-8 rounded-3xl bg-cream border border-softbrown hover:border-bronze/50 transition duration-300 flex gap-5 items-start">
+                    <div class="bg-white p-3 rounded-full shadow-sm text-bronze shrink-0">
+                        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                    </div>
                     <div>
-                        <h3 class="font-bold text-lg mb-2">Мислення та стан</h3>
-                        <p class="text-gray-400 text-sm">Як змінюється мислення, стан та дії, і чому без цього жодна трансформація не працює.</p>
+                        <h3 class="font-serif text-xl font-bold mb-2 text-coffee">Мислення та стан</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Як змінюється мислення, стан та дії, і чому без цього жодна трансформація не працює.</p>
                     </div>
                 </div>
 
-                <div class="glass-panel p-6 rounded-xl flex gap-4 items-start hover:border-gold/30 transition">
-                    <i data-lucide="sparkles" class="text-gold w-8 h-8 flex-shrink-0 mt-1"></i>
+                <div class="p-8 rounded-3xl bg-cream border border-softbrown hover:border-bronze/50 transition duration-300 flex gap-5 items-start">
+                    <div class="bg-white p-3 rounded-full shadow-sm text-bronze shrink-0">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
                     <div>
-                        <h3 class="font-bold text-lg mb-2">Шлях Glow Up</h3>
-                        <p class="text-gray-400 text-sm">Від хаосу в голові до чіткого розуміння себе, своїх бажань і напрямку.</p>
+                        <h3 class="font-serif text-xl font-bold mb-2 text-coffee">Шлях Glow Up</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Від хаосу в голові до чіткого розуміння себе, своїх бажань і напрямку.</p>
                     </div>
                 </div>
 
-                <div class="glass-panel p-6 rounded-xl flex gap-4 items-start hover:border-gold/30 transition">
-                    <i data-lucide="zap" class="text-gold w-8 h-8 flex-shrink-0 mt-1"></i>
+                <div class="p-8 rounded-3xl bg-cream border border-softbrown hover:border-bronze/50 transition duration-300 flex gap-5 items-start">
+                    <div class="bg-white p-3 rounded-full shadow-sm text-bronze shrink-0">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    </div>
                     <div>
-                        <h3 class="font-bold text-lg mb-2">Енергія та самореалізація</h3>
-                        <p class="text-gray-400 text-sm">Чому ти застрягла у стані втоми і що насправді блокує твою самореалізацію.</p>
+                        <h3 class="font-serif text-xl font-bold mb-2 text-coffee">Енергія</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Чому ти застрягла у стані втоми і що насправді блокує твою самореалізацію.</p>
                     </div>
                 </div>
 
-                <div class="glass-panel p-6 rounded-xl flex gap-4 items-start hover:border-gold/30 transition">
-                    <i data-lucide="heart" class="text-gold w-8 h-8 flex-shrink-0 mt-1"></i>
+                <div class="p-8 rounded-3xl bg-cream border border-softbrown hover:border-bronze/50 transition duration-300 flex gap-5 items-start">
+                    <div class="bg-white p-3 rounded-full shadow-sm text-bronze shrink-0">
+                        <i data-lucide="heart" class="w-6 h-6"></i>
+                    </div>
                     <div>
-                        <h3 class="font-bold text-lg mb-2">Внутрішня опора</h3>
-                        <p class="text-gray-400 text-sm">3 внутрішні конфлікти, які не дають тобі стати тією, ким мрієш бути.</p>
+                        <h3 class="font-serif text-xl font-bold mb-2 text-coffee">Внутрішня опора</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">3 внутрішні конфлікти, які не дають тобі стати тією, ким мрієш бути.</p>
                     </div>
                 </div>
 
-                <div class="glass-panel p-6 rounded-xl flex gap-4 items-start hover:border-gold/30 transition">
-                    <i data-lucide="shield-check" class="text-gold w-8 h-8 flex-shrink-0 mt-1"></i>
+                <div class="p-8 rounded-3xl bg-cream border border-softbrown hover:border-bronze/50 transition duration-300 flex gap-5 items-start">
+                    <div class="bg-white p-3 rounded-full shadow-sm text-bronze shrink-0">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
                     <div>
-                        <h3 class="font-bold text-lg mb-2">Впевненість</h3>
-                        <p class="text-gray-400 text-sm">Проста техніка, яка допоможе відчути справжню впевненість тут і зараз.</p>
+                        <h3 class="font-serif text-xl font-bold mb-2 text-coffee">Впевненість</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Проста техніка, яка допоможе відчути справжню впевненість тут і зараз.</p>
                     </div>
                 </div>
 
-                <div class="glass-panel p-6 rounded-xl flex gap-4 items-start hover:border-gold/30 transition">
-                    <i data-lucide="arrow-right-circle" class="text-gold w-8 h-8 flex-shrink-0 mt-1"></i>
+                <div class="p-8 rounded-3xl bg-cream border border-softbrown hover:border-bronze/50 transition duration-300 flex gap-5 items-start">
+                    <div class="bg-white p-3 rounded-full shadow-sm text-bronze shrink-0">
+                        <i data-lucide="arrow-right-circle" class="w-6 h-6"></i>
+                    </div>
                     <div>
-                        <h3 class="font-bold text-lg mb-2">Життя без "потім"</h3>
-                        <p class="text-gray-400 text-sm">Чому ти боїшся проявлятися і як почати жити та діяти вже зараз.</p>
+                        <h3 class="font-serif text-xl font-bold mb-2 text-coffee">Життя без "потім"</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Чому ти боїшся проявлятися і як почати жити та діяти вже зараз.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TRANSFORMATION SECTION -->
-    <section class="py-20 bg-darkgreen/30">
-        <div class="container mx-auto px-4 max-w-4xl text-center">
-            <h2 class="font-serif text-3xl md:text-4xl mb-12">Що змінюється, коли ти трансформуєш особистість?</h2>
+    <!-- TRANSFORMATION SECTION (Beige bg) -->
+    <section class="py-20 bg-softbrown/30">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="font-serif text-3xl md:text-4xl mb-12 text-coffee">Що змінюється, коли ти трансформуєш особистість?</h2>
             <ul class="text-left space-y-6 md:px-20">
                 <li class="flex items-start gap-4">
-                    <div class="bg-gold/20 p-2 rounded-full text-gold"><i data-lucide="check" class="w-5 h-5"></i></div>
-                    <span class="text-gray-200">Чітко розумієш, чого хочеш, і йдеш до своїх цілей без сумнівів.</span>
+                    <div class="text-bronze bg-white p-1 rounded-full"><i data-lucide="check" class="w-5 h-5"></i></div>
+                    <span class="text-coffee/80 text-lg">Чітко розумієш, чого хочеш, і йдеш до своїх цілей без сумнівів.</span>
                 </li>
                 <li class="flex items-start gap-4">
-                    <div class="bg-gold/20 p-2 rounded-full text-gold"><i data-lucide="check" class="w-5 h-5"></i></div>
-                    <span class="text-gray-200">Перестаєш відкладати своє життя "на потім" і починаєш діяти.</span>
+                    <div class="text-bronze bg-white p-1 rounded-full"><i data-lucide="check" class="w-5 h-5"></i></div>
+                    <span class="text-coffee/80 text-lg">Перестаєш відкладати своє життя "на потім" і починаєш діяти.</span>
                 </li>
                 <li class="flex items-start gap-4">
-                    <div class="bg-gold/20 p-2 rounded-full text-gold"><i data-lucide="check" class="w-5 h-5"></i></div>
-                    <span class="text-gray-200">Стабільний стан без емоційних гойдалок.</span>
+                    <div class="text-bronze bg-white p-1 rounded-full"><i data-lucide="check" class="w-5 h-5"></i></div>
+                    <span class="text-coffee/80 text-lg">Стабільний стан без емоційних гойдалок.</span>
                 </li>
                 <li class="flex items-start gap-4">
-                    <div class="bg-gold/20 p-2 rounded-full text-gold"><i data-lucide="check" class="w-5 h-5"></i></div>
-                    <span class="text-gray-200">Впевненість, яка не потребує схвалення інших.</span>
+                    <div class="text-bronze bg-white p-1 rounded-full"><i data-lucide="check" class="w-5 h-5"></i></div>
+                    <span class="text-coffee/80 text-lg">Впевненість, яка не потребує схвалення інших.</span>
                 </li>
             </ul>
         </div>
     </section>
 
     <!-- AUTHOR SECTION -->
-    <section class="py-20 bg-darker overflow-hidden">
-        <div class="container mx-auto px-4">
-            <h2 class="font-serif text-4xl md:text-6xl text-center mb-16 text-white"><span class="italic text-gold">My</span> Story</h2>
+    <section class="py-20 bg-cream overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="font-serif text-4xl md:text-6xl text-center mb-16 text-coffee"><span class="italic text-bronze">My</span> Story</h2>
             
             <div class="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto items-center">
-                
                 <!-- Before Side -->
                 <div class="space-y-6">
-                    <div class="relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-red-900 to-gray-900 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                        <div class="relative grid grid-cols-2 gap-2">
-                            <img src="do1.jpg" alt="Анастасія До 1" class="rounded-lg object-cover h-64 w-full grayscale hover:grayscale-0 transition duration-500">
-                            <img src="do2.jpg" alt="Анастасія До 2" class="rounded-lg object-cover h-64 w-full grayscale hover:grayscale-0 transition duration-500">
-                        </div>
+                    <div class="relative grid grid-cols-2 gap-3">
+                        <img src="do1.jpg" alt="Анастасія До 1" class="rounded-2xl object-cover h-64 w-full grayscale contrast-125">
+                        <img src="do2.jpg" alt="Анастасія До 2" class="rounded-2xl object-cover h-64 w-full grayscale contrast-125">
                     </div>
-                    <h3 class="font-serif text-2xl text-gray-400">ДО: Втрата себе</h3>
-                    <p class="text-gray-400 font-light leading-relaxed">
+                    <h3 class="font-serif text-2xl text-gray-500">ДО: Втрата себе</h3>
+                    <p class="text-gray-600 font-light leading-relaxed">
                         Привіт, мене звати Анастасія. До 25 років я не знала, ким хочу бути. Декрет, післяпологова депресія, порожнеча всередині. 
-                        Сварки з чоловіком, шлюб на межі розлучення. Я відчувала себе <span class="text-red-400">нереалізованою</span>.
+                        Сварки з чоловіком, шлюб на межі розлучення. Я відчувала себе <span class="text-red-800 bg-red-100 px-1">нереалізованою</span>.
                     </p>
                 </div>
 
                 <!-- After Side -->
                 <div class="space-y-6">
-                    <div class="relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-gold to-yellow-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                        <div class="relative grid grid-cols-2 gap-2">
-                            <img src="posle1.jpg" alt="Анастасія Після 1" class="rounded-lg object-cover h-64 w-full">
-                            <img src="posle2.jpg" alt="Анастасія Після 2" class="rounded-lg object-cover h-64 w-full">
-                        </div>
+                    <div class="relative grid grid-cols-2 gap-3">
+                        <img src="posle1.jpg" alt="Анастасія Після 1" class="rounded-2xl object-cover h-64 w-full shadow-lg">
+                        <img src="posle2.jpg" alt="Анастасія Після 2" class="rounded-2xl object-cover h-64 w-full shadow-lg">
                     </div>
-                    <h3 class="font-serif text-2xl text-gold">ЗАРАЗ: Реалізація</h3>
-                    <p class="text-gray-200 font-light leading-relaxed">
-                        Жінка, яка збудувала сильний особистий бренд. Через мої проекти пройшло <span class="text-gold font-bold">40,000+ жінок</span>. 
+                    <h3 class="font-serif text-2xl text-coffee">ЗАРАЗ: Реалізація</h3>
+                    <p class="text-coffee/80 font-light leading-relaxed">
+                        Жінка, яка збудувала сильний особистий бренд. Через мої проекти пройшло <span class="text-bronze font-bold">40,000+ жінок</span>. 
                         Улюблена справа, гармонійні стосунки, наповненість енергією.
                     </p>
                 </div>
             </div>
             
             <div class="text-center mt-16">
-                 <button onclick="openModal()" class="text-gold underline hover:text-white transition uppercase tracking-widest text-sm">
+                 <button onclick="openModal()" class="text-bronze border-b border-bronze hover:text-coffee transition uppercase tracking-widest text-sm pb-1">
                     Дізнатись всі подробиці
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- REVIEWS SECTION (UPDATED CAROUSEL) -->
-    <section class="py-20 bg-gradient-to-b from-darker to-darkgreen/20 overflow-hidden">
-        <div class="container mx-auto px-4">
-            <h2 class="font-serif text-3xl md:text-5xl text-center mb-12">Відгуки учасників</h2>
+    <!-- REVIEWS SECTION -->
+    <section class="py-20 bg-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="font-serif text-3xl md:text-5xl text-center mb-12 text-coffee">Відгуки учасників</h2>
             
             <!-- Swiper Slider -->
-            <div class="swiper mySwiper w-full max-w-6xl pb-10">
+            <div class="swiper mySwiper w-full max-w-6xl pb-14">
                 <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide w-80 md:w-96">
-                        <img src="otz1.jpg" alt="Відгук 1" class="w-full rounded-xl border border-white/10 select-none">
-                    </div>
-                    <div class="swiper-slide w-80 md:w-96">
-                        <img src="otz2.jpg" alt="Відгук 2" class="w-full rounded-xl border border-white/10 select-none">
-                    </div>
-                    <div class="swiper-slide w-80 md:w-96">
-                        <img src="otz3.jpg" alt="Відгук 3" class="w-full rounded-xl border border-white/10 select-none">
-                    </div>
-                    <div class="swiper-slide w-80 md:w-96">
-                        <img src="otz4.jpg" alt="Відгук 4" class="w-full rounded-xl border border-white/10 select-none">
-                    </div>
-                    <div class="swiper-slide w-80 md:w-96">
-                        <img src="otz5.jpg" alt="Відгук 5" class="w-full rounded-xl border border-white/10 select-none">
-                    </div>
-                    <div class="swiper-slide w-80 md:w-96">
-                        <img src="otz6.jpg" alt="Відгук 6" class="w-full rounded-xl border border-white/10 select-none">
-                    </div>
+                    <div class="swiper-slide w-80 md:w-96"><img src="otz1.jpg" alt="Відгук 1" class="w-full rounded-2xl shadow-lg border border-gray-100 select-none"></div>
+                    <div class="swiper-slide w-80 md:w-96"><img src="otz2.jpg" alt="Відгук 2" class="w-full rounded-2xl shadow-lg border border-gray-100 select-none"></div>
+                    <div class="swiper-slide w-80 md:w-96"><img src="otz3.jpg" alt="Відгук 3" class="w-full rounded-2xl shadow-lg border border-gray-100 select-none"></div>
+                    <div class="swiper-slide w-80 md:w-96"><img src="otz4.jpg" alt="Відгук 4" class="w-full rounded-2xl shadow-lg border border-gray-100 select-none"></div>
+                    <div class="swiper-slide w-80 md:w-96"><img src="otz5.jpg" alt="Відгук 5" class="w-full rounded-2xl shadow-lg border border-gray-100 select-none"></div>
+                    <div class="swiper-slide w-80 md:w-96"><img src="otz6.jpg" alt="Відгук 6" class="w-full rounded-2xl shadow-lg border border-gray-100 select-none"></div>
                 </div>
                 <!-- Pagination -->
                 <div class="swiper-pagination"></div>
@@ -284,60 +300,63 @@
     </section>
 
     <!-- FOOTER CTA -->
-    <section class="py-20 bg-darker relative">
-        <div class="absolute inset-0 bg-[url('fon.jpg')] bg-cover opacity-10"></div>
-        <div class="container relative mx-auto px-4 text-center max-w-2xl">
-            <h2 class="font-serif text-3xl md:text-5xl mb-6 text-white">Почни діяти вже сьогодні</h2>
-            <p class="text-gray-400 mb-8">Ти можеш перестати відкладати свою самореалізацію. Почни з безкоштовного відео.</p>
-            <p class="mt-8 text-gray-600 text-xs uppercase tracking-widest">Future Me © 2024</p>
+    <section class="py-20 bg-softbrown/20 relative">
+        <div class="container relative mx-auto px-6 text-center max-w-2xl">
+            <h2 class="font-serif text-3xl md:text-5xl mb-6 text-coffee">Почни діяти вже сьогодні</h2>
+            <p class="text-gray-600 mb-8">Ти можеш перестати відкладати свою самореалізацію. Почни з безкоштовного відео.</p>
+            
+            <button onclick="openModal()" class="w-full md:w-auto px-10 py-5 bg-coffee text-white font-medium text-xl rounded-full hover:bg-bronze transition hover:scale-105 shadow-xl">
+                ОТРИМАТИ ДОСТУП
+            </button>
+            <p class="mt-12 text-gray-400 text-xs uppercase tracking-widest">Future Me © 2024</p>
         </div>
     </section>
 
-    <!-- STICKY BOTTOM BAR (UPDATED) -->
-    <div id="sticky-cta" class="fixed bottom-0 left-0 w-full z-40 px-4 py-4 bg-darker/90 backdrop-blur-md border-t border-gold/20 translate-y-full transition-transform duration-500 shadow-[0_-5px_20px_rgba(0,0,0,0.5)]">
+    <!-- STICKY BOTTOM BAR (DARK BROWN) -->
+    <div id="sticky-cta" class="fixed bottom-0 left-0 w-full z-40 px-4 py-4 bg-[#231E1A]/95 backdrop-blur-md border-t border-white/10 translate-y-full transition-transform duration-500 shadow-[0_-5px_20px_rgba(0,0,0,0.2)]">
         <div class="container mx-auto flex items-center justify-between max-w-4xl gap-4">
             <div class="hidden md:block">
                 <p class="text-white text-sm font-bold">Безкоштовний урок</p>
-                <p class="text-gold text-xs">Доступ відкриється після реєстрації</p>
+                <p class="text-bronze text-xs">Доступ відкриється після реєстрації</p>
             </div>
-            <button onclick="openModal()" class="w-full md:w-auto md:ml-auto px-8 py-3 bg-gold text-darker font-bold text-lg rounded-full hover:bg-white transition hover:scale-105 shadow-[0_0_15px_rgba(212,175,55,0.3)] flex items-center justify-center gap-2">
+            <button onclick="openModal()" class="w-full md:w-auto md:ml-auto px-8 py-3 bg-white text-coffee font-bold text-lg rounded-full hover:bg-bronze hover:text-white transition hover:scale-105 shadow-md flex items-center justify-center gap-2">
                 <span>ОТРИМАТИ ДОСТУП</span>
                 <i data-lucide="play-circle" class="w-5 h-5"></i>
             </button>
         </div>
     </div>
 
-    <!-- MODAL POPUP -->
+    <!-- MODAL POPUP (Light Theme) -->
     <div id="modal" class="fixed inset-0 z-50 hidden transition-opacity duration-300" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+        <div class="fixed inset-0 bg-coffee/80 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
 
         <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-            <div class="relative transform overflow-hidden rounded-2xl bg-[#0F1C15] border border-gold/30 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md scale-100 opacity-100">
-                <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+            <div class="relative transform overflow-hidden rounded-3xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-md scale-100 opacity-100">
+                <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-coffee">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
                 <div class="px-8 py-10">
                     <div class="text-center mb-6">
-                        <h3 class="text-2xl font-serif text-white mb-2" id="modal-title">Відкрити доступ</h3>
-                        <p class="text-sm text-gray-400">Введіть свої дані, щоб ми надіслали вам урок</p>
+                        <h3 class="text-3xl font-serif text-coffee mb-2" id="modal-title">Вхід</h3>
+                        <p class="text-sm text-gray-500">Введіть свої дані, щоб ми надіслали вам урок в Telegram</p>
                     </div>
                     <form id="leadForm" class="space-y-4">
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-400 mb-1">Ваше ім'я</label>
+                            <label for="name" class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Ім'я</label>
                             <input type="text" id="name" name="name" required placeholder="Анастасія" 
-                                class="w-full bg-darker border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition">
+                                class="w-full bg-cream border border-gray-200 rounded-xl px-4 py-4 text-coffee focus:outline-none focus:border-bronze focus:ring-1 focus:ring-bronze transition">
                         </div>
                         <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-400 mb-1">Номер телефону</label>
+                            <label for="phone" class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Телефон</label>
                             <input type="tel" id="phone" name="phone" required
-                                class="w-full bg-darker border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition">
+                                class="w-full bg-cream border border-gray-200 rounded-xl px-4 py-4 text-coffee focus:outline-none focus:border-bronze focus:ring-1 focus:ring-bronze transition">
                             <div id="phone-error" class="text-red-500 text-xs mt-1 hidden">Невірний формат номеру</div>
                         </div>
-                        <button type="submit" id="submitBtn" class="w-full bg-gold text-darker font-bold text-lg py-4 rounded-lg hover:bg-white transition mt-4">
+                        <button type="submit" id="submitBtn" class="w-full bg-coffee text-white font-bold text-lg py-4 rounded-xl hover:bg-bronze transition mt-4 shadow-lg">
                             ОТРИМАТИ УРОК
                         </button>
                     </form>
-                    <p class="text-xs text-center text-gray-500 mt-4">Натискаючи кнопку, ви даєте згоду на обробку персональних даних.</p>
+                    <p class="text-xs text-center text-gray-400 mt-4">Натискаючи кнопку, ви даєте згоду на обробку даних.</p>
                 </div>
             </div>
         </div>
@@ -354,33 +373,27 @@
 
         lucide.createIcons();
 
-        // 1. Initialize Swiper (Reviews Carousel)
+        // Initialize Swiper
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1.1, // Shows part of next slide to encourage scroll
+            slidesPerView: 1.1,
             spaceBetween: 20,
             centeredSlides: true,
-            loop: true, // Infinite loop
+            loop: true,
             grabCursor: true,
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
             },
             breakpoints: {
-                640: {
-                    slidesPerView: 2.2,
-                    centeredSlides: false,
-                },
-                1024: {
-                    slidesPerView: 3.2,
-                    centeredSlides: false,
-                },
+                640: { slidesPerView: 2.2, centeredSlides: false },
+                1024: { slidesPerView: 3.2, centeredSlides: false },
             },
         });
 
-        // 2. Sticky CTA Button Logic (Show on Scroll)
+        // Sticky CTA Logic
         const stickyCta = document.getElementById('sticky-cta');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) { // Show after scrolling 300px
+            if (window.scrollY > 400) { 
                 stickyCta.classList.remove('translate-y-full');
             } else {
                 stickyCta.classList.add('translate-y-full');
@@ -397,10 +410,9 @@
             modal.classList.add('hidden');
         }
 
-        // Phone Input Logic
+        // Phone Input
         const input = document.querySelector("#phone");
         const errorMsg = document.querySelector("#phone-error");
-        
         const iti = window.intlTelInput(input, {
             utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
             separateDialCode: true,
@@ -413,7 +425,7 @@
             }
         });
 
-        // UTM Parser
+        // UTM Parsing & Submit
         function getUTMParams() {
             const params = new URLSearchParams(window.location.search);
             return {
@@ -425,28 +437,23 @@
             };
         }
 
-        // Form Submission
         document.getElementById('leadForm').addEventListener('submit', function(e) {
             e.preventDefault();
             errorMsg.classList.add('hidden');
-
             if (!iti.isValidNumber()) {
                 errorMsg.classList.remove('hidden');
                 return;
             }
-
             const btn = document.getElementById('submitBtn');
             btn.innerText = "ЗАВАНТАЖЕННЯ...";
             btn.disabled = true;
             btn.classList.add('opacity-70');
-
             const formData = {
                 name: document.getElementById('name').value,
                 phone: iti.getNumber(),
                 date: new Date().toLocaleString("uk-UA"),
                 ...getUTMParams()
             };
-
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
