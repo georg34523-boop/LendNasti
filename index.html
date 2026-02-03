@@ -86,7 +86,7 @@
 </head>
 <body class="antialiased">
 
-    <!-- HERO SECTION (Mobile Structure: Offer -> Photo -> Text -> Button) -->
+    <!-- HERO SECTION -->
     <header class="relative pt-8 pb-16 lg:py-24 overflow-hidden bg-jungle-gradient">
         <!-- Background Elements -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
@@ -117,7 +117,6 @@
                     <div class="order-2 lg:hidden mb-6 w-full">
                         <div class="relative rounded-2xl overflow-hidden border border-white/10 hero-img-shadow">
                              <img src="fon.jpg" alt="Future Me" class="w-full h-auto object-cover">
-                             <!-- Dark gradient overlay at bottom of image for better text contrast if needed -->
                              <div class="absolute inset-0 bg-gradient-to-t from-darker/80 via-transparent to-transparent"></div>
                         </div>
                     </div>
@@ -238,7 +237,7 @@
         </div>
     </section>
 
-    <!-- AUTHOR SECTION -->
+    <!-- AUTHOR SECTION (FIXED COLORS) -->
     <section class="py-20 bg-darker overflow-hidden">
         <div class="container mx-auto px-4">
             <h2 class="font-serif text-4xl md:text-6xl text-center mb-16 text-white"><span class="italic text-bronze">My</span> Story</h2>
@@ -250,10 +249,12 @@
                         <img src="do1.jpg" alt="Анастасія До 1" class="rounded-xl object-cover h-64 w-full grayscale opacity-80 hover:opacity-100 transition duration-500">
                         <img src="do2.jpg" alt="Анастасія До 2" class="rounded-xl object-cover h-64 w-full grayscale opacity-80 hover:opacity-100 transition duration-500">
                     </div>
-                    <h3 class="font-serif text-2xl text-gray-400">ДО: Втрата себе</h3>
-                    <p class="text-gray-400 font-light leading-relaxed">
+                    <!-- Исправлено: цвет заголовка на bronze -->
+                    <h3 class="font-serif text-2xl text-bronze">ДО: Втрата себе</h3>
+                    <!-- Исправлено: текст светлее (gray-200), нереализованою - bronze -->
+                    <p class="text-gray-200 font-light leading-relaxed">
                         Привіт, мене звати Анастасія. До 25 років я не знала, ким хочу бути. Декрет, післяпологова депресія. 
-                        Сварки з чоловіком, шлюб на межі розлучення. Я відчувала себе <span class="text-red-400">нереалізованою</span>.
+                        Сварки з чоловіком, шлюб на межі розлучення. Я відчувала себе <span class="text-bronze font-medium">нереалізованою</span>.
                     </p>
                 </div>
 
@@ -315,7 +316,7 @@
         </div>
     </section>
 
-    <!-- STICKY BOTTOM BAR (DARK JUNGLE + BRONZE) -->
+    <!-- STICKY BOTTOM BAR -->
     <div id="sticky-cta" class="fixed bottom-0 left-0 w-full z-40 px-4 py-4 bg-[#0A120E]/95 backdrop-blur-md border-t border-bronze/30 translate-y-full transition-transform duration-500 shadow-[0_-5px_20px_rgba(0,0,0,0.5)]">
         <div class="container mx-auto flex items-center justify-between max-w-4xl gap-4">
             <div class="hidden md:block">
@@ -329,7 +330,7 @@
         </div>
     </div>
 
-    <!-- MODAL POPUP (Dark Theme) -->
+    <!-- MODAL POPUP -->
     <div id="modal" class="fixed inset-0 z-50 hidden transition-opacity duration-300" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
 
