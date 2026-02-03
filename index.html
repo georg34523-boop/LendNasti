@@ -33,11 +33,14 @@
     <!-- Intl-Tel-Input CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
     
+    <!-- Swiper CSS (Для карусели отзывов) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* Custom Styles for inputs and scrollbar */
+        /* Custom Styles */
         .iti { width: 100%; }
         .iti__flag { background-image: url("https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/img/flags.png"); }
         @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -46,11 +49,19 @@
         body {
             background-color: #050f08;
             color: #f3f4f6;
+            padding-bottom: 80px; /* Отступ чтобы кнопка не перекрывала футер */
         }
         .glass-panel {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Стили для слайдера */
+        .swiper-slide {
+            height: auto;
+        }
+        .swiper-pagination-bullet-active {
+            background-color: #d4af37 !important;
         }
     </style>
 
@@ -78,7 +89,6 @@
 
     <!-- HERO SECTION -->
     <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Image -->
         <div class="absolute inset-0 z-0">
             <img src="fon.jpg" alt="Background" class="w-full h-full object-cover opacity-60">
             <div class="absolute inset-0 bg-gradient-to-b from-darker/80 via-darkgreen/50 to-darker"></div>
@@ -96,7 +106,7 @@
                 Система, що змінює мислення, звички, впевненість і те, як ти проявляєшся у світі.
             </p>
 
-            <button onclick="openModal()" class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-darker transition-all duration-200 bg-gold font-sans rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold hover:bg-white hover:scale-105">
+            <button onclick="openModal()" class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-darker transition-all duration-200 bg-gold font-sans rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold hover:bg-white hover:scale-105 shadow-[0_0_20px_rgba(212,175,55,0.4)]">
                 <span>ОТРИМАТИ ДОСТУП</span>
                 <i data-lucide="play-circle" class="ml-2 w-5 h-5 group-hover:text-darker"></i>
             </button>
@@ -162,12 +172,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="text-center mt-12">
-                <button onclick="openModal()" class="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-gold border border-gold rounded-full hover:bg-gold hover:text-darker transition duration-300">
-                    ОТРИМАТИ ДОСТУП ДО ВІДЕО
-                </button>
-            </div>
         </div>
     </section>
 
@@ -196,12 +200,11 @@
         </div>
     </section>
 
-    <!-- AUTHOR SECTION (Who am I + Before/After) -->
+    <!-- AUTHOR SECTION -->
     <section class="py-20 bg-darker overflow-hidden">
         <div class="container mx-auto px-4">
             <h2 class="font-serif text-4xl md:text-6xl text-center mb-16 text-white"><span class="italic text-gold">My</span> Story</h2>
             
-            <!-- Grid Layout -->
             <div class="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto items-center">
                 
                 <!-- Before Side -->
@@ -235,7 +238,6 @@
                         Улюблена справа, гармонійні стосунки, наповненість енергією.
                     </p>
                 </div>
-
             </div>
             
             <div class="text-center mt-16">
@@ -246,19 +248,38 @@
         </div>
     </section>
 
-    <!-- REVIEWS SECTION -->
-    <section class="py-20 bg-gradient-to-b from-darker to-darkgreen/20">
+    <!-- REVIEWS SECTION (UPDATED CAROUSEL) -->
+    <section class="py-20 bg-gradient-to-b from-darker to-darkgreen/20 overflow-hidden">
         <div class="container mx-auto px-4">
-            <h2 class="font-serif text-3xl md:text-5xl text-center mb-12">Відгуки</h2>
-            <!-- Masonry-like grid for reviews -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-                <img src="otz1.jpg" alt="Відгук 1" class="w-full rounded-xl border border-white/10 hover:scale-[1.02] transition duration-300">
-                <img src="otz2.jpg" alt="Відгук 2" class="w-full rounded-xl border border-white/10 hover:scale-[1.02] transition duration-300">
-                <img src="otz3.jpg" alt="Відгук 3" class="w-full rounded-xl border border-white/10 hover:scale-[1.02] transition duration-300">
-                <img src="otz4.jpg" alt="Відгук 4" class="w-full rounded-xl border border-white/10 hover:scale-[1.02] transition duration-300">
-                <img src="otz5.jpg" alt="Відгук 5" class="w-full rounded-xl border border-white/10 hover:scale-[1.02] transition duration-300">
-                <img src="otz6.jpg" alt="Відгук 6" class="w-full rounded-xl border border-white/10 hover:scale-[1.02] transition duration-300">
+            <h2 class="font-serif text-3xl md:text-5xl text-center mb-12">Відгуки учасників</h2>
+            
+            <!-- Swiper Slider -->
+            <div class="swiper mySwiper w-full max-w-6xl pb-10">
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide w-80 md:w-96">
+                        <img src="otz1.jpg" alt="Відгук 1" class="w-full rounded-xl border border-white/10 select-none">
+                    </div>
+                    <div class="swiper-slide w-80 md:w-96">
+                        <img src="otz2.jpg" alt="Відгук 2" class="w-full rounded-xl border border-white/10 select-none">
+                    </div>
+                    <div class="swiper-slide w-80 md:w-96">
+                        <img src="otz3.jpg" alt="Відгук 3" class="w-full rounded-xl border border-white/10 select-none">
+                    </div>
+                    <div class="swiper-slide w-80 md:w-96">
+                        <img src="otz4.jpg" alt="Відгук 4" class="w-full rounded-xl border border-white/10 select-none">
+                    </div>
+                    <div class="swiper-slide w-80 md:w-96">
+                        <img src="otz5.jpg" alt="Відгук 5" class="w-full rounded-xl border border-white/10 select-none">
+                    </div>
+                    <div class="swiper-slide w-80 md:w-96">
+                        <img src="otz6.jpg" alt="Відгук 6" class="w-full rounded-xl border border-white/10 select-none">
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
             </div>
+
         </div>
     </section>
 
@@ -268,54 +289,54 @@
         <div class="container relative mx-auto px-4 text-center max-w-2xl">
             <h2 class="font-serif text-3xl md:text-5xl mb-6 text-white">Почни діяти вже сьогодні</h2>
             <p class="text-gray-400 mb-8">Ти можеш перестати відкладати свою самореалізацію. Почни з безкоштовного відео.</p>
-            
-            <button onclick="openModal()" class="w-full md:w-auto px-10 py-5 bg-gold text-darker font-bold text-xl rounded-full hover:bg-white transition hover:scale-105 shadow-[0_0_20px_rgba(212,175,55,0.4)]">
-                ОТРИМАТИ ДОСТУП
-            </button>
             <p class="mt-8 text-gray-600 text-xs uppercase tracking-widest">Future Me © 2024</p>
         </div>
     </section>
 
+    <!-- STICKY BOTTOM BAR (UPDATED) -->
+    <div id="sticky-cta" class="fixed bottom-0 left-0 w-full z-40 px-4 py-4 bg-darker/90 backdrop-blur-md border-t border-gold/20 translate-y-full transition-transform duration-500 shadow-[0_-5px_20px_rgba(0,0,0,0.5)]">
+        <div class="container mx-auto flex items-center justify-between max-w-4xl gap-4">
+            <div class="hidden md:block">
+                <p class="text-white text-sm font-bold">Безкоштовний урок</p>
+                <p class="text-gold text-xs">Доступ відкриється після реєстрації</p>
+            </div>
+            <button onclick="openModal()" class="w-full md:w-auto md:ml-auto px-8 py-3 bg-gold text-darker font-bold text-lg rounded-full hover:bg-white transition hover:scale-105 shadow-[0_0_15px_rgba(212,175,55,0.3)] flex items-center justify-center gap-2">
+                <span>ОТРИМАТИ ДОСТУП</span>
+                <i data-lucide="play-circle" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </div>
+
     <!-- MODAL POPUP -->
     <div id="modal" class="fixed inset-0 z-50 hidden transition-opacity duration-300" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <!-- Backdrop -->
         <div class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
 
         <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
             <div class="relative transform overflow-hidden rounded-2xl bg-[#0F1C15] border border-gold/30 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md scale-100 opacity-100">
-                
                 <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
-
                 <div class="px-8 py-10">
                     <div class="text-center mb-6">
                         <h3 class="text-2xl font-serif text-white mb-2" id="modal-title">Відкрити доступ</h3>
                         <p class="text-sm text-gray-400">Введіть свої дані, щоб ми надіслали вам урок</p>
                     </div>
-
                     <form id="leadForm" class="space-y-4">
-                        <!-- Name Input -->
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-400 mb-1">Ваше ім'я</label>
                             <input type="text" id="name" name="name" required placeholder="Анастасія" 
                                 class="w-full bg-darker border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition">
                         </div>
-
-                        <!-- Phone Input -->
                         <div>
                             <label for="phone" class="block text-sm font-medium text-gray-400 mb-1">Номер телефону</label>
                             <input type="tel" id="phone" name="phone" required
                                 class="w-full bg-darker border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition">
                             <div id="phone-error" class="text-red-500 text-xs mt-1 hidden">Невірний формат номеру</div>
                         </div>
-
-                        <!-- Submit Button -->
                         <button type="submit" id="submitBtn" class="w-full bg-gold text-darker font-bold text-lg py-4 rounded-lg hover:bg-white transition mt-4">
                             ОТРИМАТИ УРОК
                         </button>
                     </form>
-                    
                     <p class="text-xs text-center text-gray-500 mt-4">Натискаючи кнопку, ви даєте згоду на обробку персональних даних.</p>
                 </div>
             </div>
@@ -324,13 +345,47 @@
 
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         // --- CONFIGURATION ---
-        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL'; // Встав сюди URL скрипта
-        const BOT_LINK = 'YOUR_BOT_LINK'; // Встав сюди лінк на бота
+        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL'; 
+        const BOT_LINK = 'YOUR_BOT_LINK'; 
         // ---------------------
 
         lucide.createIcons();
+
+        // 1. Initialize Swiper (Reviews Carousel)
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1.1, // Shows part of next slide to encourage scroll
+            spaceBetween: 20,
+            centeredSlides: true,
+            loop: true, // Infinite loop
+            grabCursor: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2.2,
+                    centeredSlides: false,
+                },
+                1024: {
+                    slidesPerView: 3.2,
+                    centeredSlides: false,
+                },
+            },
+        });
+
+        // 2. Sticky CTA Button Logic (Show on Scroll)
+        const stickyCta = document.getElementById('sticky-cta');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show after scrolling 300px
+                stickyCta.classList.remove('translate-y-full');
+            } else {
+                stickyCta.classList.add('translate-y-full');
+            }
+        });
 
         // Modal Logic
         const modal = document.getElementById('modal');
@@ -381,7 +436,6 @@
             }
 
             const btn = document.getElementById('submitBtn');
-            const originalText = btn.innerText;
             btn.innerText = "ЗАВАНТАЖЕННЯ...";
             btn.disabled = true;
             btn.classList.add('opacity-70');
@@ -393,19 +447,15 @@
                 ...getUTMParams()
             };
 
-            // Send to Google Sheets
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors', // Важливо для Google Scripts
+                mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             }).then(() => {
-                // Success
                 if(typeof fbq !== 'undefined') fbq('track', 'Lead');
                 window.location.href = BOT_LINK;
             }).catch(err => {
-                console.error('Error:', err);
-                // Fallback redirect even if script fails
                 window.location.href = BOT_LINK;
             });
         });
